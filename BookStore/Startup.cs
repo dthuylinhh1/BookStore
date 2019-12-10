@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using BookStore.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using BookStore.Models;
 
 namespace BookStore
 {
@@ -34,11 +35,21 @@ namespace BookStore
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContext<cp2084bookstoreContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            //replace with AddIdentity instead to work with our Database
+            //use bootstrap to style the Identity
+            //use our new ApplicationRole class to manage roles and permissions
+            //services.AddIdentity<ApplicationUser, ApplicationRole>()
+                //.AddDefaultUI(UIFramework.Bootstrap4)
+                //.AddRoles<ApplicationRole>()
+                //.AddRoleManager<RoleManager<ApplicationRole>>()
+                //.AddEntityFrameworkStores<cp2084bookstoreContext>();
+                //.AddDefaultTokenProviders()
+
+            services.AddDefaultIdentity<ApplicationUser>()
+                .AddEntityFrameworkStores<cp2084bookstoreContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

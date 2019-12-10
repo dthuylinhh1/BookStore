@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BookStore.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BookStore.Controllers
 {
+    [Authorize]
     public class BooksController : Controller
     {
         private readonly cp2084bookstoreContext _context;
@@ -19,6 +21,7 @@ namespace BookStore.Controllers
         }
 
         // GET: Books
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             var cp2084bookstoreContext = _context.Book.Include(b => b.Author).Include(b => b.Genre);

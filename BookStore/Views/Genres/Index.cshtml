@@ -5,11 +5,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<h2>Genre Information</h2>
+@if (User.Identity.IsAuthenticated)
+{
+    <p>
+        <a asp-action="Create">Create New Genre</a>
+    </p>
+}
 <table class="table">
     <thead>
         <tr>
@@ -25,11 +27,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Genre1)
             </td>
+            @if (User.Identity.IsAuthenticated)
+            {
             <td>
                 <a asp-action="Edit" asp-route-id="@item.GenreId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.GenreId">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.GenreId">Delete</a>
             </td>
+            }
         </tr>
 }
     </tbody>
