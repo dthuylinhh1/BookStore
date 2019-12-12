@@ -5,7 +5,12 @@ VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStore", "BookStore\BookStore.csproj", "{C1BCED9F-290A-480E-A06F-493B17AE8649}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStoreTest", "BookStoreTest\BookStoreTest.csproj", "{9C3C73D4-D2A6-49F5-8C3A-A206ACE5780C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStoreTest", "BookStoreTest\BookStoreTest.csproj", "{9C3C73D4-D2A6-49F5-8C3A-A206ACE5780C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E2DEB3F6-54DF-405C-AC45-C041EC8BD9D1}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
