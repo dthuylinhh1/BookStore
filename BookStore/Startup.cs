@@ -52,6 +52,17 @@ namespace BookStore
                 .AddEntityFrameworkStores<cp2084bookstoreContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            //add swagger for API documentation
+            services.AddSwaggerDocument(config =>
+            {
+                config.PostProcess = document =>
+                {
+                    document.Info.Version = "version 1";
+                    document.Info.Title = "Book Store API";
+                    document.Info.Description = "BookStore Web Service";
+                };
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -80,6 +91,12 @@ namespace BookStore
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            //enable Swagger UI to generate api documentation
+            app.UseOpenApi();
+            app.UseSwaggerUi3();
+
+            
         }
     }
 }
