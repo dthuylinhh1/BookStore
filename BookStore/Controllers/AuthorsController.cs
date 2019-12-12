@@ -24,7 +24,7 @@ namespace BookStore.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Author.ToListAsync());
+            return View("Index", await _context.Author.ToListAsync());
         }
 
         // GET: Authors/Details/5
@@ -42,7 +42,7 @@ namespace BookStore.Controllers
                 return NotFound();
             }
 
-            return View(author);
+            return View("Details", author);
         }
 
         // GET: Authors/Create
@@ -64,7 +64,7 @@ namespace BookStore.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(author);
+            return View("Create", author);
         }
 
         // GET: Authors/Edit/5

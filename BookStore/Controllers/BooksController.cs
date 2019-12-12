@@ -25,7 +25,7 @@ namespace BookStore.Controllers
         public async Task<IActionResult> Index()
         {
             var cp2084bookstoreContext = _context.Book.Include(b => b.Author).Include(b => b.Genre);
-            return View(await cp2084bookstoreContext.ToListAsync());
+            return View("Index", await cp2084bookstoreContext.ToListAsync());
         }
 
         // GET: Books/Details/5
